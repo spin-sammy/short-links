@@ -1,10 +1,12 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-class User(models.Model):
-    title = models.CharField(max_length=200)
 
-    def __str__(self):
-        return self.title
+# class User(models.Model):
+#     name = models.CharField(max_length=200)
+#
+#     def __str__(self):
+#         return self.name
 
 
 class ShortLink(models.Model):
@@ -13,5 +15,8 @@ class ShortLink(models.Model):
     jumps = models.IntegerField(default=0)
     deleted = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    last_jump_at = models.DateTimeField(auto_now=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
+
+    def __str__(self):
+        return f'id: {self.pk}   {self.source_link}  -->  {self.short_link}'
