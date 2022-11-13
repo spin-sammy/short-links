@@ -11,7 +11,15 @@ def generate_short_link(short_link_length: int = 6) -> str:
 
 def link_check(link: str) -> bool:
     try:
-        response = requests.get(link)
+        check = requests.head(link)
         return True
     except:
         return False
+
+
+def get_owner(request):
+    if str(request.user) != 'AnonymousUser':
+        user_title = str(request.user.pk)
+    else:
+        user_title = str(request.META.get("REMOTE_ADDR"))
+    return user_title

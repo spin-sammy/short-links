@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container md-6">
-    <h2 class="mt-5">Привет, {{ user_title }}</h2>
+    <h2 class="mt-4">Користувач: {{ request.user }}</h2>
     <form action="{% url 'index' %}" method="post" enctype="multipart/form-data" class="mt-4">
         {% for message in messages %}
                     {% if message.tags == 'error' %}
