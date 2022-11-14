@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Генератор коротких ссылок</title>
+    <title>Генератор коротких посилань</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
 <div class="container md-6">
-    <h2 class="mt-4">Користувач: {{ request.user }}</h2>
+    <h3 class="mt-4">Користувач: {{ request.user }}</h3>
     <form action="{% url 'index' %}" method="post" enctype="multipart/form-data" class="mt-4">
         {% for message in messages %}
                     {% if message.tags == 'error' %}
@@ -23,7 +23,7 @@
                 {% endfor %}
         {% csrf_token %}
         <p><label class="form-label">{{ form.source_link.label }}:</label>{{ form.source_link }}</p>
-        <button class="btn btn-success">Сгенерировать короткую ссылку</button>
+        <button class="btn btn-success">Створити коротке посилання</button>
     </form>
 </div>
 </body>
