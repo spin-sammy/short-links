@@ -1,4 +1,3 @@
-from django.forms import model_to_dict
 from rest_framework import status
 from rest_framework.permissions import AllowAny
 from django.shortcuts import render, redirect
