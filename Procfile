@@ -1,1 +1,1 @@
-web: gunicorn l-shorter.wsgi
+web: gunicorn short_link.short_link.wsgi
