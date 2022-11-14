@@ -1,1 +1,1 @@
-web: gunicorn short_link.wsgi
+web: gunicorn --chdir short_link short_link.wsgi
