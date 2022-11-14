@@ -31,6 +31,7 @@ def index(request):
                 new_short_link = ShortLink(source_link=source_link, short_link=short_link, owner=owner)
                 new_short_link.save()
                 form = SourceLinkForm()
+                return render(request, 'result.html', {'short_link': short_link})
             else:
                 messages.error(request, 'Посилання неактуальне. Перевірте правильність.')
         else:

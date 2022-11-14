@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="align-items-center">
+<h4 class="mt-4"><small>Ваше коротке посилання: </small><strong>{{ short_link }}</strong></h4>
+<h5 class="mt-4">Використання: <a href="{{ request.META.HTTP_ORIGIN }}/redirect/{{ short_link }}">{{ request.META.HTTP_ORIGIN }}/redirect/{{ short_link }}</a></h5>
+    </div>
+{% endblock %}
