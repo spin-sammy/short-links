@@ -27,7 +27,6 @@ def index(request):
             short_link = generate_short_link()
             source_link = str(request.POST['source_link'])
             if link_check(source_link) and not check_deleted_link(source_link):
-                messages.success(request, f'Вдало згенеровано нове коротке посилання: {short_link}')
                 new_short_link = ShortLink(source_link=source_link, short_link=short_link, owner=owner)
                 new_short_link.save()
                 form = SourceLinkForm()
@@ -50,7 +49,7 @@ class NewLinkAPI(APIView):
             short_link = generate_short_link(6)
             ShortLink.objects.create(source_link=source_link, short_link=short_link, owner=get_owner(self.request))
             source_link = ''
-            return Response(status=status.HTTP_200_OK)
+            return Response({'short_link': short_link})
         else:
             return Response(status=status.HTTP_403_FORBIDDEN)
 
